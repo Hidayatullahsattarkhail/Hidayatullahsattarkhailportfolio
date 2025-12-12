@@ -17,7 +17,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary border border-primary/30 rounded-full glass-card">
-            ✦ Available for Projects
+            ✦ B.Sc AI Student at PAF-IAST
           </span>
         </motion.div>
         
@@ -27,20 +27,26 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
         >
-          Creative{' '}
-          <span className="text-gradient-primary">Developer</span>
-          <br />
-          & Designer
+          Hidayat{' '}
+          <span className="text-gradient-primary">Ullah</span>
         </motion.h1>
         
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4 leading-relaxed"
         >
-          I craft immersive digital experiences through the fusion of cutting-edge
-          technology and creative design. Let's build something extraordinary together.
+          AI & Machine Learning Enthusiast | Computer Vision | Deep Learning
+        </motion.p>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-muted-foreground text-base max-w-xl mx-auto mb-10 leading-relaxed"
+        >
+          Passionate about building real-time AI solutions and creating immersive digital experiences
         </motion.p>
         
         <motion.div
@@ -55,15 +61,15 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg glow-primary transition-all duration-300 hover:shadow-[0_0_50px_hsl(175_80%_50%/0.6)]"
           >
-            View My Work
+            View My Projects
           </motion.a>
           <motion.a
-            href="#about"
+            href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 rounded-full glass-card border border-border font-semibold text-lg hover:border-primary/50 transition-all duration-300"
           >
-            Learn More
+            Get In Touch
           </motion.a>
         </motion.div>
       </div>

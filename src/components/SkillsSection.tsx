@@ -7,23 +7,30 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const skills = [
-    { name: 'React', level: 95, color: 'from-primary to-primary-glow' },
-    { name: 'TypeScript', level: 90, color: 'from-blue-400 to-blue-600' },
-    { name: 'Node.js', level: 85, color: 'from-green-400 to-green-600' },
-    { name: 'Three.js', level: 80, color: 'from-accent to-purple-400' },
-    { name: 'Python', level: 75, color: 'from-yellow-400 to-yellow-600' },
-    { name: 'UI/UX Design', level: 85, color: 'from-pink-400 to-pink-600' },
+    { name: 'Python', level: 90, color: 'from-blue-400 to-blue-600' },
+    { name: 'Machine Learning', level: 85, color: 'from-primary to-primary-glow' },
+    { name: 'Deep Learning', level: 80, color: 'from-purple-400 to-purple-600' },
+    { name: 'Computer Vision', level: 75, color: 'from-green-400 to-green-600' },
+    { name: 'C/C++', level: 80, color: 'from-accent to-pink-400' },
+    { name: 'Web Development', level: 75, color: 'from-orange-400 to-orange-600' },
   ];
 
   const technologies = [
-    { name: 'React', icon: '⚛️' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'TypeScript', icon: '📘' },
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'Three.js', icon: '🎮' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'TensorFlow', icon: '🧠' },
+    { name: 'OpenCV', icon: '👁️' },
+    { name: 'C++', icon: '⚡' },
+    { name: 'HTML/CSS', icon: '🌐' },
+    { name: 'Git', icon: '📦' },
     { name: 'Figma', icon: '🎨' },
-    { name: 'AWS', icon: '☁️' },
-    { name: 'Docker', icon: '🐳' },
+    { name: 'Premiere Pro', icon: '🎬' },
+  ];
+
+  const certifications = [
+    'Google Data Analytics',
+    'Microsoft Word & Excel',
+    'Data Visualization',
+    'AI Pricing & ROI',
   ];
 
   return (
@@ -45,7 +52,7 @@ const SkillsSection = () => {
             Skills & <span className="text-gradient-primary">Technologies</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A curated collection of tools and technologies I use to bring ideas to life
+            AI/ML technologies and tools I use to build intelligent solutions
           </p>
         </motion.div>
 
@@ -83,21 +90,41 @@ const SkillsSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+            className="space-y-8"
           >
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-card rounded-xl p-6 text-center cursor-pointer hover:border-primary/30 transition-colors duration-300"
-              >
-                <div className="text-3xl mb-3">{tech.icon}</div>
-                <div className="text-sm font-medium">{tech.name}</div>
-              </motion.div>
-            ))}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {technologies.map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="glass-card rounded-xl p-4 text-center cursor-pointer hover:border-primary/30 transition-colors duration-300"
+                >
+                  <div className="text-2xl mb-2">{tech.icon}</div>
+                  <div className="text-xs font-medium">{tech.name}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Certifications */}
+            <div>
+              <h3 className="font-display text-lg font-semibold mb-4">Certifications</h3>
+              <div className="flex flex-wrap gap-2">
+                {certifications.map((cert, index) => (
+                  <motion.span
+                    key={cert}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                    className="px-3 py-2 text-sm rounded-lg bg-primary/10 text-primary border border-primary/20"
+                  >
+                    {cert}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const Footer = () => {
           transition={{ duration: 0.5 }}
           className="text-muted-foreground text-sm"
         >
-          © 2024 John Doe. Crafted with passion and code.
+          © 2024 Hidayat Ullah. Built with passion for AI & Innovation.
         </motion.p>
         
         <motion.div

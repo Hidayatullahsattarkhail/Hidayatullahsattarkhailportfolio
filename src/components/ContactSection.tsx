@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, Youtube, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ContactSection = () => {
@@ -15,14 +15,45 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
+    // Open email client with pre-filled content
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    window.open(`mailto:hidayatullahsattarkhail@gmail.com?subject=${subject}&body=${body}`);
+    toast.success("Opening email client...");
     setFormData({ name: '', email: '', message: '' });
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'hello@johndoe.dev' },
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
+    { icon: Mail, label: 'Email', value: 'hidayatullahsattarkhail@gmail.com' },
+    { icon: MapPin, label: 'Location', value: 'Islamabad, Pakistan' },
+    { icon: Globe, label: 'University', value: 'PAF-IAST, Haripur' },
+  ];
+
+  const socialLinks = [
+    { 
+      name: 'GitHub', 
+      icon: Github, 
+      url: 'https://github.com/Hidayatullahsattarkhail',
+      color: 'hover:text-foreground'
+    },
+    { 
+      name: 'LinkedIn', 
+      icon: Linkedin, 
+      url: 'https://www.linkedin.com/in/hidayatullah-sattarkhail-b77b3a283/',
+      color: 'hover:text-blue-400'
+    },
+    { 
+      name: 'YouTube', 
+      icon: Youtube, 
+      url: 'https://www.youtube.com/@AKMotivational603',
+      color: 'hover:text-red-500'
+    },
+    { 
+      name: 'Portfolio', 
+      icon: Globe, 
+      url: 'https://hidayatsattarkhail.netlify.app/',
+      color: 'hover:text-primary'
+    },
   ];
 
   return (
@@ -41,10 +72,10 @@ const ContactSection = () => {
             Get In Touch
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Let's Work <span className="text-gradient-primary">Together</span>
+            Let's <span className="text-gradient-primary">Connect</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's create something extraordinary together.
+            Interested in AI, Machine Learning, or collaboration? Let's discuss!
           </p>
         </motion.div>
 
@@ -70,7 +101,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">{item.label}</div>
-                    <div className="font-medium">{item.value}</div>
+                    <div className="font-medium text-sm md:text-base">{item.value}</div>
                   </div>
                 </motion.div>
               ))}
@@ -78,16 +109,22 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div className="pt-8 border-t border-border">
-              <p className="text-muted-foreground mb-4">Follow me on</p>
+              <p className="text-muted-foreground mb-4">Connect with me</p>
               <div className="flex gap-4">
-                {['GitHub', 'LinkedIn', 'Twitter', 'Dribbble'].map((social) => (
+                {socialLinks.map((social, index) => (
                   <motion.a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors duration-300"
+                    className={`w-12 h-12 rounded-lg glass-card flex items-center justify-center text-muted-foreground ${social.color} hover:border-primary/30 transition-all duration-300`}
+                    title={social.name}
                   >
-                    {social[0]}
+                    <social.icon size={20} />
                   </motion.a>
                 ))}
               </div>
@@ -109,7 +146,7 @@ const ContactSection = () => {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                placeholder="John Doe"
+                placeholder="Your Name"
                 required
               />
             </div>
@@ -121,7 +158,7 @@ const ContactSection = () => {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                placeholder="john@example.com"
+                placeholder="your@email.com"
                 required
               />
             </div>
@@ -133,7 +170,7 @@ const ContactSection = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
                 className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
-                placeholder="Tell me about your project..."
+                placeholder="Tell me about your project or idea..."
                 required
               />
             </div>

@@ -9,32 +9,40 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: 'AI Dashboard',
-      description: 'A comprehensive analytics dashboard with real-time data visualization and AI-powered insights.',
-      tags: ['React', 'TypeScript', 'D3.js', 'Python'],
+      title: 'AI Smart Gesture Mirror',
+      description: 'An AI-powered smart mirror with gesture control, voice assistant, and real-time widgets for an interactive experience.',
+      tags: ['Python', 'AI', 'Computer Vision', 'OpenCV'],
       color: 'from-primary/20 to-blue-500/20',
       accent: 'primary',
+      github: 'https://github.com/Hidayatullahsattarkhail/AI-Smart-Gesture-Mirror',
+      emoji: '🪞',
     },
     {
-      title: '3D Configurator',
-      description: 'Interactive 3D product configurator with WebGL rendering and real-time customization.',
-      tags: ['Three.js', 'React', 'WebGL', 'Node.js'],
+      title: 'University Management System',
+      description: 'Complete system for managing students, exams, fees, and transport with Python backend.',
+      tags: ['Python', 'Database', 'Management System'],
       color: 'from-accent/20 to-pink-500/20',
       accent: 'accent',
+      github: 'https://github.com/Hidayatullahsattarkhail/University-Management-System',
+      emoji: '🎓',
     },
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-      tags: ['Next.js', 'Stripe', 'PostgreSQL', 'AWS'],
-      color: 'from-green-500/20 to-teal-500/20',
+      title: 'Hidayat\'s AI Canvas',
+      description: 'AI-powered creative canvas built with TypeScript for interactive and intelligent design experiences.',
+      tags: ['TypeScript', 'AI', 'Creative Tools'],
+      color: 'from-purple-500/20 to-indigo-500/20',
       accent: 'primary',
+      live: 'https://hidayats-ai-canvas.lovable.app',
+      emoji: '🎨',
     },
     {
-      title: 'Mobile Banking App',
-      description: 'Secure mobile banking application with biometric authentication and real-time transactions.',
-      tags: ['React Native', 'Node.js', 'MongoDB', 'Redux'],
-      color: 'from-orange-500/20 to-yellow-500/20',
+      title: 'Data Structures & Algorithms',
+      description: 'Comprehensive collection of DSA implementations in C++ covering fundamental computer science concepts.',
+      tags: ['C++', 'DSA', 'Algorithms'],
+      color: 'from-green-500/20 to-teal-500/20',
       accent: 'accent',
+      github: 'https://github.com/Hidayatullahsattarkhail/Data-Structures-and-Algorithms',
+      emoji: '📊',
     },
   ];
 
@@ -57,7 +65,7 @@ const ProjectsSection = () => {
             Featured <span className="text-gradient-primary">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work showcasing innovative solutions and creative designs
+            AI and software projects showcasing my skills in Machine Learning, Computer Vision, and Development
           </p>
         </motion.div>
 
@@ -76,7 +84,7 @@ const ProjectsSection = () => {
               <div className="relative glass-card rounded-2xl p-8 h-full border border-border hover:border-primary/30 transition-colors duration-300">
                 {/* Project Preview Placeholder */}
                 <div className={`h-48 rounded-xl mb-6 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden`}>
-                  <div className="text-6xl opacity-50">🚀</div>
+                  <div className="text-6xl">{project.emoji}</div>
                 </div>
                 
                 <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
@@ -99,27 +107,57 @@ const ProjectsSection = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Github size={16} />
-                    Code
-                  </motion.button>
+                  {project.live && (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </motion.a>
+                  )}
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Github size={16} />
+                      View Code
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* GitHub Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-12"
+        >
+          <motion.a
+            href="https://github.com/Hidayatullahsattarkhail"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card border border-border hover:border-primary/50 transition-all duration-300"
+          >
+            <Github size={20} />
+            View All Projects on GitHub
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
