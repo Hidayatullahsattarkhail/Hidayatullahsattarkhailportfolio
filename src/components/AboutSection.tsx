@@ -7,10 +7,10 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { value: '5+', label: 'Years Experience' },
-    { value: '50+', label: 'Projects Completed' },
-    { value: '30+', label: 'Happy Clients' },
-    { value: '100%', label: 'Satisfaction Rate' },
+    { value: '4+', label: 'Years Experience' },
+    { value: '10+', label: 'Projects Completed' },
+    { value: '3', label: 'Semesters B.Sc AI' },
+    { value: '6+', label: 'Certifications' },
   ];
 
   return (
@@ -36,10 +36,11 @@ const AboutSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                 <div className="relative z-10 text-center">
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <span className="text-5xl font-display font-bold text-primary-foreground">JD</span>
+                    <span className="text-5xl font-display font-bold text-primary-foreground">HU</span>
                   </div>
-                  <h3 className="font-display text-2xl font-bold mb-2">John Doe</h3>
-                  <p className="text-muted-foreground">Full Stack Developer</p>
+                  <h3 className="font-display text-2xl font-bold mb-2">Hidayat Ullah</h3>
+                  <p className="text-muted-foreground">AI Student & Developer</p>
+                  <p className="text-sm text-primary mt-2">PAF-IAST University</p>
                 </div>
                 
                 {/* Floating elements */}
@@ -67,18 +68,18 @@ const AboutSection = () => {
               About Me
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Crafting Digital{' '}
-              <span className="text-gradient-primary">Experiences</span>
+              AI Explorer &{' '}
+              <span className="text-gradient-primary">Innovator</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I'm a passionate full-stack developer with a love for creating 
-              immersive web experiences. With expertise in modern technologies 
-              and a keen eye for design, I transform ideas into reality.
+              I'm a B.Sc Artificial Intelligence student at Pak-Austria Fachhochschule (PAF-IAST), 
+              passionate about Machine Learning, Deep Learning, and Computer Vision. My goal is 
+              to become an AI Researcher and build real-time AI solutions.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              My journey in tech started 5 years ago, and since then I've worked 
-              with startups and enterprises alike, delivering solutions that 
-              make a real impact.
+              Beyond academics, I've taken leadership roles as Director of Social Media at IEEE 
+              Student Branch, Director of Marketing at Hult Prize, and Director of Volleyball Society. 
+              I also founded a motivational YouTube channel with 4+ years of content creation experience.
             </p>
             
             {/* Stats Grid */}
