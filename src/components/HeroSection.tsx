@@ -12,21 +12,31 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
       
       <div className="relative z-10 text-center px-6 max-w-5xl">
-        {/* Profile Photo with Glowing Border */}
+        {/* Profile Photo with Glowing Border and Floating Animation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8"
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            y: [0, -10, 0]
+          }}
+          transition={{ 
+            opacity: { duration: 0.8, delay: 0.3 },
+            scale: { duration: 0.8, delay: 0.3 },
+            y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="mb-10"
         >
           <div className="relative inline-block">
+            {/* Outer glow effect */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-50 blur-xl animate-pulse" />
             {/* Glowing ring effect */}
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-md animate-pulse" />
-            <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-primary to-accent" />
+            <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-md" />
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-accent" />
             <img
               src={profilePhoto}
               alt="Hidayat Ullah"
-              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background"
+              className="relative w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-full object-cover border-4 border-background shadow-2xl"
             />
           </div>
         </motion.div>
