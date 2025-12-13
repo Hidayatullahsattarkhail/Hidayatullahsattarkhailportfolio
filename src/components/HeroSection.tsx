@@ -47,7 +47,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary border border-primary/30 rounded-full glass-card">
-            ✦ B.Sc AI Student at PAF-IAST
+            ✦ B.S AI Student at PAF-IAST
           </span>
         </motion.div>
         
