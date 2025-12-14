@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Scene3D from './3d/Scene3D';
 import profilePhoto from '@/assets/hidayat-profile.png';
+import TypewriterText from './TypewriterText';
 
 const HeroSection = () => {
   return (
@@ -61,14 +62,18 @@ const HeroSection = () => {
           <span className="text-gradient-primary">Ullah</span>
         </motion.h1>
         
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4 leading-relaxed"
+          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4 leading-relaxed h-8"
         >
-          AI & Machine Learning Enthusiast | Computer Vision | Deep Learning
-        </motion.p>
+          <TypewriterText 
+            text="AI & Machine Learning Enthusiast | Computer Vision | Deep Learning"
+            delay={1200}
+            speed={40}
+          />
+        </motion.div>
         
         <motion.p
           initial={{ opacity: 0, y: 30 }}

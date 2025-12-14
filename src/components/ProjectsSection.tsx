@@ -73,18 +73,27 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative"
+              initial={{ opacity: 0, y: 40, rotateX: 15 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+              className="group relative card-3d"
+              style={{ perspective: '1000px' }}
             >
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${project.color} blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300`} />
+              {/* Animated glow background */}
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${project.color} blur-xl opacity-0 group-hover:opacity-70 transition-all duration-500`} />
               
-              <div className="relative glass-card rounded-2xl p-8 h-full border border-border hover:border-primary/30 transition-colors duration-300">
+              <div className="relative glass-card rounded-2xl p-8 h-full border border-border card-hover-glow border-reveal transition-all duration-500">
                 {/* Project Preview Placeholder */}
-                <div className={`h-48 rounded-xl mb-6 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden`}>
-                  <div className="text-6xl">{project.emoji}</div>
+                <div className={`h-48 rounded-xl mb-6 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-500`}>
+                  <motion.div 
+                    className="text-6xl"
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {project.emoji}
+                  </motion.div>
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
                 </div>
                 
                 <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
@@ -96,13 +105,16 @@ const ProjectsSection = () => {
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
+                  {project.tags.map((tag, tagIndex) => (
+                    <motion.span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.3, delay: 0.5 + index * 0.1 + tagIndex * 0.05 }}
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground group-hover:bg-primary/20 group-hover:text-primary transition-colors duration-300"
                     >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
                 
@@ -112,7 +124,7 @@ const ProjectsSection = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, x: 5 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow transition-colors"
                     >
@@ -125,7 +137,7 @@ const ProjectsSection = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, x: 5 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
