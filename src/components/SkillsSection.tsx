@@ -96,14 +96,20 @@ const SkillsSection = () => {
               {technologies.map((tech, index) => (
                 <motion.div
                   key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="glass-card rounded-xl p-4 text-center cursor-pointer hover:border-primary/30 transition-colors duration-300"
+                  initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
+                  animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.08 }}
+                  whileHover={{ scale: 1.1, y: -8, rotateY: 10 }}
+                  className="glass-card rounded-xl p-4 text-center cursor-pointer card-hover-glow border-reveal group"
                 >
-                  <div className="text-2xl mb-2">{tech.icon}</div>
-                  <div className="text-xs font-medium">{tech.name}</div>
+                  <motion.div 
+                    className="text-2xl mb-2"
+                    whileHover={{ scale: 1.2, rotate: 15 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {tech.icon}
+                  </motion.div>
+                  <div className="text-xs font-medium group-hover:text-primary transition-colors duration-300">{tech.name}</div>
                 </motion.div>
               ))}
             </div>

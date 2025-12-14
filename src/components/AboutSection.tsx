@@ -87,15 +87,16 @@ const AboutSection = () => {
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="glass-card rounded-xl p-4 text-center"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="glass-card rounded-xl p-4 text-center card-hover-glow border-reveal group cursor-pointer"
                 >
-                  <div className="text-2xl md:text-3xl font-display font-bold text-gradient-primary mb-1">
+                  <div className="text-2xl md:text-3xl font-display font-bold text-gradient-primary mb-1 group-hover:scale-110 transition-transform duration-300">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground group-hover:text-primary transition-colors duration-300">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
