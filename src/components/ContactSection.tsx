@@ -51,7 +51,7 @@ const ContactSection = () => {
     { 
       name: 'Portfolio', 
       icon: Globe, 
-      url: 'https://hidayatsattarkhail.netlify.app/',
+      url: 'https://sattarkhail.netlify.app',
       color: 'hover:text-primary'
     },
   ];
