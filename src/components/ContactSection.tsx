@@ -45,7 +45,7 @@ const ContactSection = () => {
     { 
       name: 'YouTube', 
       icon: Youtube, 
-      url: 'https://www.youtube.com/@AKMotivational603',
+      url: 'https://www.youtube.com/@Dreamtodo804',
       color: 'hover:text-red-500'
     },
     { 
