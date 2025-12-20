@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Play } from 'lucide-react';
 
 const ProjectsSection = () => {
   const ref = useRef(null);
@@ -15,6 +15,7 @@ const ProjectsSection = () => {
       color: 'from-primary/20 to-blue-500/20',
       accent: 'primary',
       github: 'https://github.com/Hidayatullahsattarkhail/AI-Smart-Gesture-Mirror',
+      video: 'https://www.linkedin.com/posts/hidayatullah-sattarkhail-b77b3a283_semesterproject-projectnimbus-aiproject-activity-7405714407500009472-L3Nz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEULsQsBksNx7rB00TBMatAvmD7IkRJ6V6Q',
       emoji: '🪞',
     },
     {
@@ -118,7 +119,7 @@ const ProjectsSection = () => {
                   ))}
                 </div>
                 
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {project.live && (
                     <motion.a
                       href={project.live}
@@ -130,6 +131,19 @@ const ProjectsSection = () => {
                     >
                       <ExternalLink size={16} />
                       Live Demo
+                    </motion.a>
+                  )}
+                  {project.video && (
+                    <motion.a
+                      href={project.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
+                    >
+                      <Play size={16} />
+                      Watch Demo
                     </motion.a>
                   )}
                   {project.github && (
