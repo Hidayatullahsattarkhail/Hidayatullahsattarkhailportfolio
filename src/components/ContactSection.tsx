@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, MapPin, Linkedin, Github, Youtube, Globe } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, Youtube, Globe, Instagram, BookOpen } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ContactSection = () => {
@@ -47,6 +47,18 @@ const ContactSection = () => {
       icon: Youtube, 
       url: 'https://www.youtube.com/@Dreamtodo804',
       color: 'hover:text-red-500'
+    },
+    { 
+      name: 'Instagram', 
+      icon: Instagram, 
+      url: 'https://www.instagram.com/hidayatullahsattarkhail?igsh=YmR6Y2RiODYyOG41&utm_source=qr',
+      color: 'hover:text-pink-500'
+    },
+    { 
+      name: 'ResearchGate', 
+      icon: BookOpen, 
+      url: 'https://www.researchgate.net/profile/Hidayat-Sattarkhail?ev=prf_overview',
+      color: 'hover:text-teal-400'
     },
     { 
       name: 'Portfolio', 
