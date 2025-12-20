@@ -34,7 +34,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="relative py-32 px-6 overflow-hidden">
+    <section id="skills" className="relative py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
       
@@ -56,13 +56,13 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Skills Bars */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             {skills.map((skill, index) => (
               <div key={skill.name} className="space-y-2">

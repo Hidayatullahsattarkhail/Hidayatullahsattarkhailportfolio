@@ -69,9 +69,9 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-32 px-6">
+    <section id="contact" className="relative py-20 sm:py-32 px-4 sm:px-6">
       {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div ref={ref} className="max-w-7xl mx-auto">
         <motion.div
@@ -91,13 +91,13 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div className="space-y-6">
               {contactInfo.map((item, index) => (
@@ -122,7 +122,7 @@ const ContactSection = () => {
             {/* Social Links */}
             <div className="pt-8 border-t border-border">
               <p className="text-muted-foreground mb-4">Connect with me</p>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.name}
@@ -133,10 +133,10 @@ const ContactSection = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className={`w-12 h-12 rounded-lg glass-card flex items-center justify-center text-muted-foreground ${social.color} hover:border-primary/30 transition-all duration-300`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg glass-card flex items-center justify-center text-muted-foreground ${social.color} hover:border-primary/30 transition-all duration-300`}
                     title={social.name}
                   >
-                    <social.icon size={20} />
+                    <social.icon size={18} className="sm:w-5 sm:h-5" />
                   </motion.a>
                 ))}
               </div>
