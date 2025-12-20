@@ -71,7 +71,7 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-32 px-6 overflow-hidden">
+    <section id="experience" className="relative py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[150px]" />
       
@@ -95,24 +95,24 @@ const ExperienceSection = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary/20 transform md:-translate-x-1/2" />
+          <div className="absolute left-[7px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary/20 transform md:-translate-x-1/2" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.title + exp.company}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 ${
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2 z-10 shadow-[0_0_20px_hsl(175_80%_50%/0.6)]" />
+                <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-primary transform md:-translate-x-1/2 z-10 shadow-[0_0_20px_hsl(175_80%_50%/0.6)]" />
                 
                 {/* Content card */}
-                <div className={`w-full md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'} pl-8 md:pl-0`}>
+                <div className={`w-full md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'} pl-8`}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
                     className="glass-card rounded-2xl p-6 border border-border card-hover-glow border-reveal transition-all duration-500 group"

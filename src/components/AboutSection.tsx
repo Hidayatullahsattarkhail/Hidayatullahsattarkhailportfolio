@@ -14,12 +14,12 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative py-32 px-6">
+    <section id="about" className="relative py-20 sm:py-32 px-4 sm:px-6">
       {/* Background Elements */}
       <div className="absolute top-1/2 right-0 w-72 h-72 bg-accent/10 rounded-full blur-[100px]" />
       
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left - Image/Visual */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -64,19 +64,19 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block text-center lg:text-left">
               About Me
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
               AI Explorer &{' '}
               <span className="text-gradient-primary">Innovator</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
               I'm a B.Sc Artificial Intelligence student at Pak-Austria Fachhochschule (PAF-IAST), 
               passionate about Machine Learning, Deep Learning, and Computer Vision. My goal is 
               to become an AI Researcher and build real-time AI solutions.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
               Beyond academics, I've taken leadership roles as Director of Social Media at IEEE 
               Student Branch, Director of Marketing at Hult Prize, and Director of Volleyball Society. 
               I also founded a motivational YouTube channel with 4+ years of content creation experience.
