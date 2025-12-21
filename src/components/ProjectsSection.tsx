@@ -118,45 +118,39 @@ const ProjectsSection = () => {
                   ))}
                 </div>
                 
-                <div className="flex flex-wrap gap-3 sm:gap-4">
+                <div className="flex flex-wrap gap-3 sm:gap-4 relative z-10">
                   {project.live && (
-                    <motion.a
+                    <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow transition-colors cursor-pointer hover:underline"
                     >
                       <ExternalLink size={16} />
                       Live Demo
-                    </motion.a>
+                    </a>
                   )}
                   {project.video && (
-                    <motion.a
+                    <a
                       href={project.video}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-red-500 hover:text-red-400 transition-colors cursor-pointer hover:underline"
                     >
                       <Play size={16} />
                       Watch Demo
-                    </motion.a>
+                    </a>
                   )}
                   {project.github && (
-                    <motion.a
+                    <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer hover:underline"
                     >
                       <Github size={16} />
                       View Code
-                    </motion.a>
+                    </a>
                   )}
                 </div>
               </div>
