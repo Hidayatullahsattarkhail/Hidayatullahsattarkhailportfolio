@@ -6,6 +6,64 @@
 
 @layer base {
   :root {
+    --background: 210 40% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 175 80% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 175 80% 50%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 280 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 175 80% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(175 80% 40%), hsl(200 80% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 70% 55%), hsl(320 70% 55%));
+    --gradient-cosmic: linear-gradient(180deg, hsl(220 20% 96%) 0%, hsl(220 25% 92%) 50%, hsl(220 20% 96%) 100%);
+    
+    --shadow-glow: 0 0 60px hsl(175 80% 40% / 0.2);
+    --shadow-glow-accent: 0 0 40px hsl(280 70% 55% / 0.2);
+    --shadow-card: 0 8px 32px hsl(220 20% 10% / 0.08);
+    
+    --glass-bg: hsl(0 0% 100% / 0.7);
+    --glass-border: hsl(220 15% 85% / 0.5);
+
+    /* Typography */
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 175 80% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 175 80% 40%;
+  }
+
+  .dark {
     --background: 220 20% 4%;
     --foreground: 210 40% 98%;
 
@@ -35,8 +93,6 @@
     --input: 220 20% 18%;
     --ring: 175 80% 50%;
 
-    --radius: 0.75rem;
-
     /* Custom Design Tokens */
     --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%), hsl(200 80% 60%));
     --gradient-accent: linear-gradient(135deg, hsl(280 70% 60%), hsl(320 70% 60%));
@@ -48,10 +104,6 @@
     
     --glass-bg: hsl(220 20% 10% / 0.6);
     --glass-border: hsl(220 20% 25% / 0.3);
-
-    /* Typography */
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
 
     --sidebar-background: 220 20% 8%;
     --sidebar-foreground: 210 40% 98%;
