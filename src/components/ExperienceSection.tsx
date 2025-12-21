@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 
 const ExperienceSection = () => {
   const ref = useRef(null);
@@ -11,6 +11,7 @@ const ExperienceSection = () => {
     {
       title: 'Director Marketing Communications',
       company: 'Hult Prize PAF-IAST',
+      companyUrl: 'https://www.hultprize.org/',
       type: 'Part-time',
       period: 'Nov 2025 - Present',
       location: 'Islamabad, Pakistan · Remote',
@@ -21,6 +22,7 @@ const ExperienceSection = () => {
     {
       title: 'Director of Social Media',
       company: 'IEEE Student Branch PAF-IAST',
+      companyUrl: 'https://www.ieee.org/',
       type: 'Full-time',
       period: 'Oct 2025 - Dec 2025',
       location: 'Islamabad, Pakistan · Remote',
@@ -31,6 +33,7 @@ const ExperienceSection = () => {
     {
       title: 'Website Developer',
       company: 'DesignClinic.pk',
+      companyUrl: 'https://designclinic.pk/',
       type: 'Part-time',
       period: 'Feb 2025 - Sep 2025',
       location: 'Islamabad, Pakistan · On-site',
@@ -41,6 +44,7 @@ const ExperienceSection = () => {
     {
       title: 'AI Intern',
       company: 'Youth Tech Link National Tech',
+      companyUrl: 'https://www.linkedin.com/company/youth-tech-link/',
       type: 'Internship',
       period: 'Jul 2025 - Sep 2025',
       location: 'Remote',
@@ -51,6 +55,7 @@ const ExperienceSection = () => {
     {
       title: 'Graphic Design Intern',
       company: 'ASET',
+      companyUrl: 'https://www.pafiast.edu.pk/',
       type: 'Internship',
       period: 'Apr 2025',
       location: 'PAF-IAST University · On-site',
@@ -60,11 +65,12 @@ const ExperienceSection = () => {
     },
     {
       title: 'YouTube Content Creator',
-      company: 'AK Motivational',
+      company: 'Dreamtodo',
+      companyUrl: 'https://www.youtube.com/@Dreamtodo804',
       type: 'Part-time',
       period: 'Mar 2021 - Feb 2025',
       location: 'Pakistan',
-      description: 'Founded AKMotivational603 channel focused on personal development. Led content creation and achieved significant engagement through targeted digital marketing.',
+      description: 'Founded content channel focused on personal development. Led content creation and achieved significant engagement through targeted digital marketing.',
       skills: ['Video Editing', 'Live Streaming', 'Photography', 'Digital Marketing'],
       color: 'from-red-500 to-orange-500',
     },
@@ -125,7 +131,15 @@ const ExperienceSection = () => {
                     </div>
                     
                     <h3 className="font-display text-xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">{exp.title}</h3>
-                    <p className="text-primary font-medium mb-3">{exp.company}</p>
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-primary font-medium mb-3 hover:underline transition-all duration-300"
+                    >
+                      {exp.company}
+                      <ExternalLink size={14} className="opacity-70" />
+                    </a>
                     
                     <div className="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4">
                       <span className="flex items-center gap-1">
