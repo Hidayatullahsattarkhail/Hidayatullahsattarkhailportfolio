@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,29 +53,23 @@ const Navigation = () => {
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 lg:px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_30px_hsl(175_80%_50%/0.5)] transition-shadow duration-300"
-            >
-              Let's Talk
-            </motion.a>
-          </div>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden md:block px-4 lg:px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-[0_0_30px_hsl(175_80%_50%/0.5)] transition-shadow duration-300"
+          >
+            Let's Talk
+          </motion.a>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"
-            >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
-          </div>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}
